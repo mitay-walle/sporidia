@@ -1,6 +1,5 @@
 using System;
 using GameJam.Plugins.Combat.Damage;
-using Sirenix.OdinInspector;
 using UltEvents;
 using UnityEditor;
 using UnityEngine;
@@ -35,7 +34,7 @@ namespace GameJam.Plugins.Combat
 		private bool IsPlayer(Collider2D collider2D) => true;
 
 #if UNITY_EDITOR
-		[OnInspectorGUI]
+		//[OnInspectorGUI]
 		private void OnInspectorGUI()
 		{
 			if (TryGetComponent<Collider2D>(out var collider2D))

@@ -1,5 +1,5 @@
 ﻿using System;
-using Sirenix.OdinInspector;
+using TriInspector;
 
 namespace GameJam.Plugins.Combat.Damage
 {

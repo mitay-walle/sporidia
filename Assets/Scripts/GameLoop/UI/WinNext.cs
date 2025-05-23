@@ -10,16 +10,15 @@ namespace GameJam.Plugins.GameLoop.UI
 		{
 			FindAnyObjectByType<GameplayEvents>().OnWin += Callback;
 			gameObject.SetActive(false);
-			GetComponentInChildren<Button>(true).onClick.AddListener(OnClick);
+			GetComponentInChildren<Button>().onClick.AddListener(OnClick);
 		}
 
 		private void Callback()
 		{
-			gameObject.SetActive(true);
-			//if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 1)
-			//{
-			//	gameObject.SetActive(true);
-			//}
+			if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 1)
+			{
+				gameObject.SetActive(true);
+			}
 		}
 
 		private void OnClick()

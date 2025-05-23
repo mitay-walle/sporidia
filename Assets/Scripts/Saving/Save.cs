@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Game.Saving
@@ -13,7 +12,7 @@ namespace Game.Saving
 		public List<int> equipedItems = new();
 		public List<int> equipedGems = new();
 		public int equipedPet;
-		[PropertyRange(1, 5)] public int GemSlotsCount = 1;
+		[Range(1, 5)] public int GemSlotsCount = 1;
 
 		//public eTutorialStep Tutorial;
 		public int LastLevel;

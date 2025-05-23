@@ -1,5 +1,5 @@
 using GameJam.Plugins.Combat.Damage;
-using Sirenix.OdinInspector;
+using TriInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +8,7 @@ namespace GameJam.Plugins.Combat.UI
 	[RequireComponent(typeof(Slider))]
 	public class Healthbar : MonoBehaviour
 	{
-		[ShowInInspector, ReadOnly, HideInEditorMode] private Damageable _damageable;
+		[ShowInInspector, ReadOnly] private Damageable _damageable;
 
 		public void Init(Damageable damageable)
 		{

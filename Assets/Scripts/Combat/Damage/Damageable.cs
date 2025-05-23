@@ -1,8 +1,6 @@
-using System;
 using GameJam.Plugins.Disablers;
 using GameJam.Plugins.GameLoop;
-using GameJam.Upgrades;
-using Sirenix.OdinInspector;
+using TriInspector;
 using UltEvents;
 using UnityEngine;
 
@@ -10,7 +8,6 @@ namespace GameJam.Plugins.Combat.Damage
 {
 	public class Damageable : MonoBehaviour, IHasFaction
 	{
-		[SerializeField] private UpgradableParams _maxHealthOverride;
 		[field: SerializeField] public Faction Faction { get; private set; }
 		[field: SerializeField] public int Health { get; private set; } = 1;
 		[field: SerializeField] public int Max { get; private set; } = 4;
@@ -18,7 +15,7 @@ namespace GameJam.Plugins.Combat.Damage
 		[SerializeField] private float _deathDisableTime = 3;
 
 		public bool IsAlive => Health > 0;
-		
+
 		public UltEvent<DamageInfo> OnDamage;
 		public UltEvent<DamageInfo> OnDeath;
 
@@ -29,7 +26,7 @@ namespace GameJam.Plugins.Combat.Damage
 
 		public void Recieve(IHasFaction source, int healthDelta)
 		{
-			if(source != null && source.Faction == Faction && healthDelta > 0) return;
+			if (source != null && source.Faction == Faction && healthDelta > 0) return;
 			if (Health <= 0) return;
 			if (!IsImmortal.IsEnabled && healthDelta > 0) return;
 
@@ -61,17 +58,14 @@ namespace GameJam.Plugins.Combat.Damage
 
 		private int GetMaxHealth()
 		{
-			if (_maxHealthOverride)
-				return (int)_maxHealthOverride.Value;
-
 			return Max;
 		}
-		
-		[Button, HideInEditorMode] private void Kill() => Recieve(this, 100000);
 
-		[Button, HideInEditorMode] private void Damage1() => Recieve(this, 1);
+		[Button] private void Kill() => Recieve(this, 100000);
 
-		[Button, HideInEditorMode] private void Heal1() => Recieve(this, -1);
+		[Button] private void Damage1() => Recieve(this, 1);
+
+		[Button] private void Heal1() => Recieve(this, -1);
 
 		public void AddMax(int delta)
 		{
