@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 49214e307d538ec459b8c4c4e8610922
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 241778
+  packageName: Simple Loot Table
+  packageVersion: 1.0
+  assetPath: Assets/Simple Loot Table/Scripts/LootTableBase.cs
+  uploadId: 558469

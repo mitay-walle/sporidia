@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 739240339832045748e61013eb357b93
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 241778
+  packageName: Simple Loot Table
+  packageVersion: 1.0
+  assetPath: Assets/Simple Loot Table/Scripts/Editor/DropConfigPropertyDrawerBase.cs
+  uploadId: 558469
