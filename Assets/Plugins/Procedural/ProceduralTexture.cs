@@ -5,13 +5,14 @@ using UnityEngine;
 using UnityEngine.Experimental.Rendering;
 using Random = UnityEngine.Random;
 using System.Linq;
+using TriInspector;
 
 namespace GameJam.Plugins.Procedural
 {
 	[CreateAssetMenu]
 	public sealed class ProceduralTexture : ScriptableObject, ISerializationCallbackReceiver
 	{
-		[SerializeField] private Texture2D _texture;
+		[SerializeField, ReadOnly] private Texture2D _texture;
 		private const string E = nameof(Execute);
 		[SerializeField] private bool _immediate = true;
 		[SerializeField] private bool _isSquare = true;
@@ -24,7 +25,7 @@ namespace GameJam.Plugins.Procedural
 
 		[NonSerialized] private Context _context;
 
-		[ContextMenu("Execute")]
+		[Button("Execute")]
 		private void Execute()
 		{
 			if (!_texture) return;
@@ -113,8 +114,8 @@ namespace GameJam.Plugins.Procedural
 		[Serializable]
 		public class Perlin : Layer
 		{
-			[SerializeField,  ColorUsage(true)] private Color min = Color.clear;
-			[SerializeField,  ColorUsage(true)] private Color max = Color.white;
+			[SerializeField, ColorUsage(true)] private Color min = Color.clear;
+			[SerializeField, ColorUsage(true)] private Color max = Color.white;
 			[SerializeField] private Vector2 _uv = new(1, 1);
 			[SerializeField] private AnimationCurve _gamma = AnimationCurve.Linear(0, 0, 1, 1);
 			[SerializeField] private Vector2 _remap = new(0, 1);
@@ -493,7 +494,7 @@ namespace GameJam.Plugins.Procedural
 #endif
 		}
 
-		[ContextMenu("Export to .png")]
+		[Button("Export to .png")]
 		private void ExportToPNG()
 		{
 	#if UNITY_EDITOR
@@ -554,9 +555,9 @@ namespace GameJam.Plugins.Procedural
 
 #if !ODIN_INSPECTOR
 	[InitializeOnLoad]
-	public class ExtensionContextMenu
+	public class ExtensionButton
 	{
-		static ExtensionContextMenu()
+		static ExtensionButton()
 		{
 			EditorApplication.contextualPropertyMenu -= OnContextualPropertyMenu;
 			EditorApplication.contextualPropertyMenu += OnContextualPropertyMenu;
