@@ -60,11 +60,11 @@ namespace Plugins.LevelDesign
 			if (_renderer)
 			{
 				_renderer.sprite = _sprites[Mathf.RoundToInt((_sprites.Length - 1) * Random.value)];
-				if (_resetCollider && _renderer.GetComponent<PolygonCollider2D>() && _renderer.sprite.GetPhysicsShapeCount() > 0)
-				{
-					_renderer.sprite.GetPhysicsShape(0, _buffer);
-					_renderer.GetComponent<PolygonCollider2D>().SetPath(0, _buffer);
-				}
+				// if (_resetCollider && _renderer.GetComponent<PolygonCollider2D>() && _renderer.sprite.GetPhysicsShapeCount() > 0)
+				// {
+				// 	_renderer.sprite.GetPhysicsShape(0, _buffer);
+				// 	_renderer.GetComponent<PolygonCollider2D>().SetPath(0, _buffer);
+				// }
 			}
 		}
 	}

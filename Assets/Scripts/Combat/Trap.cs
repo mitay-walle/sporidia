@@ -15,7 +15,7 @@ namespace GameJam.Plugins.Combat
 		[SerializeField] private float _destroyTime = 3;
 		[SerializeField] private UltEvent OnTriggerAny;
 
-		private void OnTriggerEnter2D(Collider2D col)
+		private void OnTriggerEnter(Collider col)
 		{
 			if (IsPlayer(col))
 			{
@@ -31,13 +31,13 @@ namespace GameJam.Plugins.Combat
 			}
 		}
 
-		private bool IsPlayer(Collider2D collider2D) => true;
+		private bool IsPlayer(Collider collider) => true;
 
 #if UNITY_EDITOR
 		//[OnInspectorGUI]
 		private void OnInspectorGUI()
 		{
-			if (TryGetComponent<Collider2D>(out var collider2D))
+			if (TryGetComponent<Collider>(out var collider2D))
 			{
 				if (!collider2D.isTrigger)
 				{

@@ -31,9 +31,9 @@ namespace GameJam.Plugins.Navigation
 		public Vector3 RandomPointOnGround()
 		{
 			Vector3 origin = transform.TransformPoint(RandomUnitTopX());
-			RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, Height, _ground);
+			Physics.Raycast(origin, Vector2.down, out var hit, Height, _ground);
 
-			if (hit)
+			if (hit.collider != null)
 			{
 				if (_debug)
 				{
