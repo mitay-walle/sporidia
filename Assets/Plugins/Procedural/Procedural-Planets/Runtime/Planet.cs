@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TriInspector;
+using UnityEngine;
 
 namespace Sporidia.Plugins.Procedural.Procedural_Planets.Runtime
 {
@@ -21,7 +22,7 @@ namespace Sporidia.Plugins.Procedural.Procedural_Planets.Runtime
 		[SerializeField] ShapeGenerator shapeGenerator = new ShapeGenerator();
 		[SerializeField] ColourGenerator colourGenerator = new ColourGenerator();
 
-		[SerializeField, HideInInspector]
+		[SerializeField]
 		MeshFilter[] meshFilters;
 		TerrainFace[] terrainFaces;
 
@@ -49,6 +50,8 @@ namespace Sporidia.Plugins.Procedural.Procedural_Planets.Runtime
 					meshObj.AddComponent<MeshRenderer>();
 					meshFilters[i] = meshObj.AddComponent<MeshFilter>();
 					meshFilters[i].sharedMesh = new Mesh();
+					var collider = meshObj.AddComponent<MeshCollider>();
+					collider.sharedMesh = new Mesh();
 				}
 
 				meshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = colourSettings.planetMaterial;
@@ -59,6 +62,7 @@ namespace Sporidia.Plugins.Procedural.Procedural_Planets.Runtime
 			}
 		}
 
+		[Button]
 		public void GeneratePlanet()
 		{
 			Initialize();
@@ -107,6 +111,11 @@ namespace Sporidia.Plugins.Procedural.Procedural_Planets.Runtime
 					terrainFaces[i].UpdateUVs(colourGenerator);
 				}
 			}
+		}
+
+		void OnValidate()
+		{
+			GeneratePlanet();
 		}
 	}
 }

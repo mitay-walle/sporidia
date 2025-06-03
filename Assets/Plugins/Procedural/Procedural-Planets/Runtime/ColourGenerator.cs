@@ -16,7 +16,7 @@ namespace Sporidia.Plugins.Procedural.Procedural_Planets.Runtime
 			this.settings = settings;
 			if (texture == null || texture.height != settings.biomeColourSettings.biomes.Length)
 			{
-				texture = new Texture2D(textureResolution * 2, settings.biomeColourSettings.biomes.Length, TextureFormat.RGBA32, false);
+				texture = new Texture2D(textureResolution * 2, settings.biomeColourSettings.biomes.Length, TextureFormat.ASTC_HDR_4x4, false);
 			}
 
 			biomeNoiseFilter = NoiseFilterFactory.CreateNoiseFilter(settings.biomeColourSettings.noise);

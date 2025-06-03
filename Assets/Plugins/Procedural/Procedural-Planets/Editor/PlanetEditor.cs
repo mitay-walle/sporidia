@@ -1,62 +1,66 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Sporidia.Plugins.Procedural.Procedural_Planets.Runtime;
-using UnityEngine;
+﻿using Sporidia.Plugins.Procedural.Procedural_Planets.Runtime;
 using UnityEditor;
+using UnityEngine;
 
-[CustomEditor(typeof(Planet))]
-public class PlanetEditor : Editor {
-
-    Planet planet;
-    Editor shapeEditor;
-    Editor colourEditor;
-
-	public override void OnInspectorGUI()
+namespace Sporidia.Plugins.Procedural.Procedural_Planets.Editor
+{
+	//[CustomEditor(typeof(Planet))]
+	public class PlanetEditor : UnityEditor.Editor
 	{
-        using (var check = new EditorGUI.ChangeCheckScope())
-        {
-            base.OnInspectorGUI();
-            if (check.changed)
-            {
-                planet.GeneratePlanet();
-            }
-        }
+		UnityEditor.Editor shapeEditor;
+		UnityEditor.Editor colourEditor;
 
-        if (GUILayout.Button("Generate Planet"))
-        {
-            planet.GeneratePlanet();
-        }
+		public override void OnInspectorGUI()
+		{
+			using (var check = new EditorGUI.ChangeCheckScope())
+			{
+				base.OnInspectorGUI();
+				if (check.changed)
+				{
+					foreach (Planet planet in targets)
+					{
+						planet.GeneratePlanet();
+					}
+				}
+			}
 
-        DrawSettingsEditor(planet.shapeSettings, planet.OnShapeSettingsUpdated, ref planet.shapeSettingsFoldout, ref shapeEditor);
-        DrawSettingsEditor(planet.colourSettings, planet.OnColourSettingsUpdated, ref planet.colourSettingsFoldout, ref colourEditor);
-	}
+			if (GUILayout.Button("Generate Planet"))
+			{
+				foreach (Planet planet in targets)
+				{
+					planet.GeneratePlanet();
+				}
+			}
 
-    void DrawSettingsEditor(Object settings, System.Action onSettingsUpdated, ref bool foldout, ref Editor editor)
-    {
-        if (settings != null)
-        {
-            foldout = EditorGUILayout.InspectorTitlebar(foldout, settings);
-            using (var check = new EditorGUI.ChangeCheckScope())
-            {
-                if (foldout)
-                {
-                    CreateCachedEditor(settings, null, ref editor);
-                    editor.OnInspectorGUI();
+			if (target is Planet planet2)
+			{
+				DrawSettingsEditor(planet2.shapeSettings, planet2.OnShapeSettingsUpdated, ref planet2.shapeSettingsFoldout, ref shapeEditor);
+				DrawSettingsEditor(planet2.colourSettings, planet2.OnColourSettingsUpdated, ref planet2.colourSettingsFoldout, ref colourEditor);
+			}
+		}
 
-                    if (check.changed)
-                    {
-                        if (onSettingsUpdated != null)
-                        {
-                            onSettingsUpdated();
-                        }
-                    }
-                }
-            }
-        }
-    }
+		void DrawSettingsEditor(Object settings, System.Action onSettingsUpdated, ref bool foldout, ref UnityEditor.Editor editor)
+		{
+			if (settings != null)
+			{
+				foldout = EditorGUILayout.InspectorTitlebar(foldout, settings);
+				using (var check = new EditorGUI.ChangeCheckScope())
+				{
+					if (foldout)
+					{
+						CreateCachedEditor(settings, null, ref editor);
+						editor.OnInspectorGUI();
 
-	private void OnEnable()
-	{
-        planet = (Planet)target;
+						if (check.changed)
+						{
+							if (onSettingsUpdated != null)
+							{
+								onSettingsUpdated();
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }
