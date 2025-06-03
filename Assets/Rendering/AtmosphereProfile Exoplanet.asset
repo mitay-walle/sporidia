@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3809d83b02c81406f940133c41e93bf5, type: 3}
+  m_Name: AtmosphereProfile Exoplanet
+  m_EditorClassIdentifier: 
+  LUTSize: 32
+  opticalDepthCompute: {fileID: 7200000, guid: 9b0dc6063958035b09e19d4bfa8cf7bd, type: 3}
+  opticalDepthPoints: 30
+  inScatteringPoints: 30
+  sunIntensity: 1716.9
+  rayleighScatter:
+    red: 0.10357914
+    green: 0.17244332
+    blue: 0.13492526
+    power: -1
+  rayleighDensityFalloff: 30.3
+  mieScatter:
+    red: 0.03910422
+    green: 0.07286896
+    blue: 0.08726415
+    power: 1
+  mieDensityFalloff: 100
+  mieG: 1
+  heightAbsorbtion: 5.1
+  absorbtionColor: {r: 1, g: 1, b: 1, a: 0}
+  ambientColor: {r: 0.12167322, g: 0.08962262, b: 1, a: 1}
