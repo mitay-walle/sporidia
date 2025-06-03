@@ -6,7 +6,7 @@ namespace Sporidia.Plugins.Procedural.Procedural_Planets.Runtime
 	[Serializable]
 	public class ShapeGenerator
 	{
-		ShapeSettings settings;
+		public ShapeSettings settings;
 		INoiseFilter[] noiseFilters;
 		public MinMax elevationMinMax;
 

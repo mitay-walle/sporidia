@@ -11,13 +11,8 @@ namespace Sporidia.Plugins.Procedural.Procedural_Planets.Runtime
 		public enum FaceRenderMask { All, Top, Bottom, Left, Right, Front, Back };
 		public FaceRenderMask faceRenderMask;
 
-		public ShapeSettings shapeSettings;
-		public ColourSettings colourSettings;
-
-		[HideInInspector]
-		public bool shapeSettingsFoldout;
-		[HideInInspector]
-		public bool colourSettingsFoldout;
+		[InlineEditor, OnValueChanged(nameof(OnShapeSettingsUpdated))] public ShapeSettings shapeSettings;
+		[InlineEditor, OnValueChanged(nameof(OnColourSettingsUpdated))] public ColourSettings colourSettings;
 
 		[SerializeField] ShapeGenerator shapeGenerator = new ShapeGenerator();
 		[SerializeField] ColourGenerator colourGenerator = new ColourGenerator();
@@ -49,11 +44,17 @@ namespace Sporidia.Plugins.Procedural.Procedural_Planets.Runtime
 
 					meshObj.AddComponent<MeshRenderer>();
 					meshFilters[i] = meshObj.AddComponent<MeshFilter>();
-					meshFilters[i].sharedMesh = new Mesh();
-					var collider = meshObj.AddComponent<MeshCollider>();
-					collider.sharedMesh = new Mesh();
+
+					meshObj.AddComponent<MeshCollider>();
 				}
 
+				meshFilters[i].sharedMesh ??= new Mesh()
+				{
+					name = $"PlaneMesh_{GetInstanceID()}"
+				};
+
+				var collider = meshFilters[i].GetComponent<MeshCollider>();
+				collider.sharedMesh = meshFilters[i].sharedMesh;
 				meshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = colourSettings.planetMaterial;
 
 				terrainFaces[i] = new TerrainFace(shapeGenerator, meshFilters[i].sharedMesh, resolution, directions[i]);

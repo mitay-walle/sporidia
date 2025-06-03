@@ -45,9 +45,9 @@ MonoBehaviour:
         m_ColorSpace: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
-      tint: {r: 1, g: 0.46519178, b: 0, a: 1}
-      startHeight: 0
-      tintPercent: 0.463
+      tint: {r: 0.74901944, g: 0.3484377, b: 0, a: 1}
+      startHeight: 0.234
+      tintPercent: 0.376
     noise:
       filterType: 0
       simpleNoiseSettings:

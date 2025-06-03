@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elements:
   - lensFlareDataSRP: {fileID: 0}
-    visible: 0
+    visible: 1
     position: 0
     positionOffset: {x: 0, y: 0}
     angularOffset: 0
@@ -25,23 +25,23 @@ MonoBehaviour:
     noiseFrequency: 1
     noiseSpeed: 0
     shapeCutOffSpeed: 0
-    shapeCutOffRadius: 10
-    m_LocalIntensity: 0.45
+    shapeCutOffRadius: 0.3
+    m_LocalIntensity: 0.17
     lensFlareTexture: {fileID: 0}
-    uniformScale: 1.15
+    uniformScale: 7.17
     sizeXY: {x: 2.26, y: 0.06}
     allowMultipleElement: 1
     m_Count: 5
     preserveAspectRatio: 0
-    rotation: -7.55
-    tintColorType: 0
+    rotation: -7.12
+    tintColorType: 1
     tint: {r: 1, g: 1, b: 1, a: 1}
     tintGradient:
       <textureSize>k__BackingField: 4
       m_Gradient:
         serializedVersion: 2
-        key0: {r: 0, g: 0, b: 0, a: 0}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 0.4433962, g: 0.120086476, b: 0, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -64,8 +64,8 @@ MonoBehaviour:
         atime5: 0
         atime6: 0
         atime7: 0
-        m_Mode: 2
-        m_ColorSpace: -1
+        m_Mode: 0
+        m_ColorSpace: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       mode: 2
@@ -188,7 +188,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     distortionRelativeToCenter: 0
     m_FallOff: 1
-    m_EdgeOffset: 0.886
+    m_EdgeOffset: 1
     m_SideCount: 6
     m_SdfRoundness: 0
     inverseSDF: 0
@@ -218,9 +218,9 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - lensFlareDataSRP: {fileID: 0}
-    visible: 0
+    visible: 1
     position: 0
-    positionOffset: {x: 0, y: 0.01}
+    positionOffset: {x: 0, y: -0.02}
     angularOffset: 0
     translationScale: {x: 1, y: 1}
     ringThickness: 0.25
@@ -230,12 +230,12 @@ MonoBehaviour:
     noiseSpeed: 0
     shapeCutOffSpeed: 0
     shapeCutOffRadius: 10
-    m_LocalIntensity: 0.3
+    m_LocalIntensity: 0.01
     lensFlareTexture: {fileID: 0}
-    uniformScale: 0.1
-    sizeXY: {x: 47.28, y: 0.1}
+    uniformScale: 8.35
+    sizeXY: {x: 47.28, y: 0.05}
     allowMultipleElement: 1
-    m_Count: 5
+    m_Count: 3
     preserveAspectRatio: 0
     rotation: 0
     tintColorType: 0
@@ -276,11 +276,11 @@ MonoBehaviour:
       colorSpace: -1
     blendMode: 0
     autoRotate: 0
-    flareType: 1
+    flareType: 2
     modulateByLightColor: 0
     isFoldOpened: 0
     distribution: 2
-    lengthSpread: 0.04
+    lengthSpread: 0
     positionCurve:
       serializedVersion: 2
       m_Curve:
@@ -360,9 +360,9 @@ MonoBehaviour:
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    m_IntensityVariation: 0.75
-    positionVariation: {x: 0, y: 0}
-    scaleVariation: 5.1
+    m_IntensityVariation: 0.814
+    positionVariation: {x: 0, y: 0.05}
+    scaleVariation: 6.2
     rotationVariation: 0
     enableRadialDistortion: 0
     targetSizeDistortion: {x: 1, y: 1.23}
@@ -392,9 +392,9 @@ MonoBehaviour:
       m_RotationOrder: 4
     distortionRelativeToCenter: 0
     m_FallOff: 1
-    m_EdgeOffset: 1
+    m_EdgeOffset: 0.902
     m_SideCount: 6
-    m_SdfRoundness: 0
+    m_SdfRoundness: 0.966
     inverseSDF: 0
     uniformAngle: 71.5
     uniformAngleCurve:
@@ -434,9 +434,9 @@ MonoBehaviour:
     noiseSpeed: 0
     shapeCutOffSpeed: 0
     shapeCutOffRadius: 23.46
-    m_LocalIntensity: 0.52
+    m_LocalIntensity: 0.03
     lensFlareTexture: {fileID: 0}
-    uniformScale: 2.84
+    uniformScale: 110.86
     sizeXY: {x: 1, y: 1}
     allowMultipleElement: 0
     m_Count: 5
@@ -482,7 +482,7 @@ MonoBehaviour:
     autoRotate: 0
     flareType: 1
     modulateByLightColor: 1
-    isFoldOpened: 1
+    isFoldOpened: 0
     distribution: 2
     lengthSpread: 0.04
     positionCurve:
@@ -595,7 +595,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     distortionRelativeToCenter: 1
-    m_FallOff: 0.702
+    m_FallOff: 0
     m_EdgeOffset: 1
     m_SideCount: 6
     m_SdfRoundness: 0
@@ -640,7 +640,7 @@ MonoBehaviour:
     shapeCutOffRadius: 19.27
     m_LocalIntensity: 0.01
     lensFlareTexture: {fileID: 0}
-    uniformScale: 0.68
+    uniformScale: 3.8
     sizeXY: {x: 1, y: 1}
     allowMultipleElement: 1
     m_Count: 6
